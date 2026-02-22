@@ -20,7 +20,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const { userId } = await auth();
   const { date: dateParam } = await searchParams;
 
-  const date = dateParam ? new Date(dateParam) : new Date();
+  const date = dateParam ? new Date(`${dateParam}T00:00:00`) : new Date();
   date.setHours(0, 0, 0, 0);
 
   const workouts = await getWorkoutsForUserOnDate(userId!, date);
