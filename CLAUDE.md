@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## IMPORTANT: Coding Standards
+
+Before generating any code, Claude Code MUST always first consult the relevant documentation file in the `/docs` directory. The `/docs` directory contains the coding standards and conventions for this project, and all generated code must comply with them.
+
+- `/docs/ui.md` — UI standards (shadcn/ui components, date formatting)
+
 ## Commands
 
 ```bash
