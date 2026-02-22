@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { createWorkout } from "./actions";
+import { updateWorkout } from "./actions";
 
 const formSchema = z.object({
   name: z.string().max(255).optional(),
@@ -23,19 +23,21 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-export function NewWorkoutForm() {
+interface EditWorkoutFormProps {
+  workoutId: string;
+  defaultValues: FormValues;
+}
+
+export function EditWorkoutForm({ workoutId, defaultValues }: EditWorkoutFormProps) {
   const router = useRouter();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      startedAt: new Date().toISOString().slice(0, 16),
-    },
+    defaultValues,
   });
 
   async function onSubmit(values: FormValues) {
     const startedAt = new Date(values.startedAt).toISOString();
-    const result = await createWorkout({
+    const result = await updateWorkout(workoutId, {
       name: values.name || undefined,
       startedAt,
     });
@@ -86,7 +88,7 @@ export function NewWorkoutForm() {
 
         <div className="flex gap-3">
           <Button type="submit" disabled={form.formState.isSubmitting}>
-            {form.formState.isSubmitting ? "Creating..." : "Create Workout"}
+            {form.formState.isSubmitting ? "Saving..." : "Save Changes"}
           </Button>
           <Button
             type="button"
