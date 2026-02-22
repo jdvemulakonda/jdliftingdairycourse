@@ -6,7 +6,9 @@
       "mcp__neon__get_database_tables",
       "mcp__neon__describe_table_schema",
       "mcp__neon__run_sql_transaction",
-      "Bash(cd /c/workspace/jdliftingdiarycourse && npx shadcn@latest add calendar popover button card badge --yes 2>&1)"
+      "Bash(cd /c/workspace/jdliftingdiarycourse && npx shadcn@latest add calendar popover button card badge --yes 2>&1)",
+      "Bash(cd C:/workspace/jdliftingdiarycourse && git merge --no-ff dashboard 2>&1)",
+      "Bash(cd C:/workspace/jdliftingdiarycourse && git stash && git merge --no-ff dashboard 2>&1)"
     ]
   },
   "enableAllProjectMcpServers": true,
