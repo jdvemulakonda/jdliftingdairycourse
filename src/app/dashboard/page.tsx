@@ -9,8 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { getWorkoutsForUserOnDate } from "@/data/workouts";
 import { DatePicker } from "./DatePicker";
+import Link from "next/link";
 
 interface DashboardPageProps {
   searchParams: Promise<{ date?: string }>;
@@ -50,9 +52,12 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             <Card>
               <CardContent className="flex flex-col items-center justify-center py-12 text-center">
                 <DumbbellIcon className="mb-3 h-10 w-10 text-muted-foreground" />
-                <p className="text-muted-foreground">
+                <p className="mb-4 text-muted-foreground">
                   No workouts logged for {formattedDate}.
                 </p>
+                <Button asChild>
+                  <Link href="/dashboard/workout/new">Log New Workout</Link>
+                </Button>
               </CardContent>
             </Card>
           ) : (
