@@ -8,6 +8,8 @@ Before generating any code, Claude Code MUST always first consult the relevant d
 
 - `/docs/ui.md` — UI standards (shadcn/ui components, date formatting)
 - `/docs/data-fetching.md` — Data fetching standards (server components only, Drizzle ORM, user data isolation)
+- `/docs/data-mutations.md` — Data mutation standards (server actions, Zod validation, typed params, Drizzle ORM helper functions)
+- `/docs/auth.md` — Auth standards (Clerk, protected routes, authenticated user ID)
 
 ## Commands
 
